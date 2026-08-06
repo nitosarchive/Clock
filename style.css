@@ -68,41 +68,45 @@ button:hover {
   font-size: 2rem;
 } */
 
-.clock-hands {
-  position: relative;
-  height: 200px;
-  width: 200px;
+.clock-container {
+  height: 230px;
+  width: 230px;
   border-radius: 50%;
   border: 1px solid gray;
-  justify-content: center;
-
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.hands {
+  position: relative;
+}
+
 #second-hand {
   width: 2px;
-  height: 100px;
+  height: 80px;
   background-color: tomato;
   border-radius: 0.2em;
-
-  transform-origin: center bottom;
+  transform-origin: center top;
   position: absolute;
 }
 
 #minute-hand {
   width: 3px;
-  height: 100px;
+  height: 90px;
   position: absolute;
 
   background-color: white;
   border-radius: 0.2em;
-  transform-origin: center bottom;
+  transform-origin: center top;
 }
 
 #hour-hand {
   width: 4px;
-  height: 100px;
+  height: 70px;
   position: absolute;
   background-color: white;
   border-radius: 0.2em;
-  transform-origin: center bottom;
+
+  transform-origin: center top;
 }
