@@ -31,6 +31,8 @@ body {
   text-align: center;
 }
 
+/*
+
 #time {
   font-size: 5rem;
 }
@@ -64,4 +66,43 @@ button:hover {
 #date {
   margin-top: 1em;
   font-size: 2rem;
+} */
+
+.clock-hands {
+  position: relative;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  justify-content: center;
+
+  display: flex;
+}
+#second-hand {
+  width: 2px;
+  height: 100px;
+  background-color: tomato;
+  border-radius: 0.2em;
+
+  transform-origin: center bottom;
+  position: absolute;
+}
+
+#minute-hand {
+  width: 3px;
+  height: 100px;
+  position: absolute;
+
+  background-color: white;
+  border-radius: 0.2em;
+  transform-origin: center bottom;
+}
+
+#hour-hand {
+  width: 4px;
+  height: 100px;
+  position: absolute;
+  background-color: white;
+  border-radius: 0.2em;
+  transform-origin: center bottom;
 }

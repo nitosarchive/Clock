@@ -1,107 +1,132 @@
-const clock = document.getElementById("time");
-const format = document.getElementById("format-switch");
+// const clock = document.getElementById("time");
+// const format = document.getElementById("format-switch");
 
-const day = document.getElementById("date");
+// const day = document.getElementById("date");
 
-const dayList = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+// const dayList = [
+//   "Sunday",
+//   "Monday",
+//   "Tuesday",
+//   "Wednesday",
+//   "Thursday",
+//   "Friday",
+//   "Saturday",
+// ];
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+// const months = [
+//   "January",
+//   "February",
+//   "March",
+//   "April",
+//   "May",
+//   "June",
+//   "July",
+//   "August",
+//   "September",
+//   "October",
+//   "November",
+//   "December",
+// ];
 
-let date = new Date();
+// let date = new Date();
 
-let fetchCivil = true;
+// let fetchCivil = true;
 
-let fetchMilitary = false;
+// let fetchMilitary = false;
 
-let miitary;
+// let miitary;
 
-let civil = true;
+// let civil = true;
 
-function currentTimeCivil() {
-  if (!fetchCivil) return;
+// function currentTimeCivil() {
+//   if (!fetchCivil) return;
 
-  civil = setInterval(() => {
-    date = new Date();
-    dateString = date.toLocaleTimeString();
-    clock.textContent = dateString;
-  }, 100);
-}
+//   civil = setInterval(() => {
+//     date = new Date();
+//     dateString = date.toLocaleTimeString();
+//     clock.textContent = dateString;
+//   }, 100);
+// }
 
-function currentTimeMilitary() {
-  if (!fetchMilitary) return;
+// function currentTimeMilitary() {
+//   if (!fetchMilitary) return;
 
-  military = setInterval(() => {
-    date = new Date();
+//   military = setInterval(() => {
+//     date = new Date();
 
-    let ampm;
+//     let ampm;
 
-    if (date.getHours() >= 12) {
-      ampm = "PM";
-    } else {
-      ampm = "AM";
-    }
+//     if (date.getHours() >= 12) {
+//       ampm = "PM";
+//     } else {
+//       ampm = "AM";
+//     }
 
-    dateTimeMilitary =
-      date.getHours() +
-      ":" +
-      date.getMinutes() +
-      ":" +
-      date.getSeconds() +
-      " " +
-      ampm;
-    clock.textContent = dateTimeMilitary;
-  }, 100);
-}
+//     dateTimeMilitary =
+//       date.getHours() +
+//       ":" +
+//       date.getMinutes() +
+//       ":" +
+//       date.getSeconds() +
+//       " " +
+//       ampm;
+//     clock.textContent = dateTimeMilitary;
+//   }, 100);
+// }
 
-function switchTime() {
-  if (fetchCivil) {
-    fetchCivil = false;
-    fetchMilitary = true;
-    clearInterval(civil);
-    currentTimeMilitary();
-    format.innerText = "12HR";
-  } else if (fetchMilitary) {
-    fetchMilitary = false;
-    fetchCivil = true;
-    clearInterval(military);
-    currentTimeCivil();
-    format.innerText = "24HR";
-  }
-}
+// function switchTime() {
+//   if (fetchCivil) {
+//     fetchCivil = false;
+//     fetchMilitary = true;
+//     clearInterval(civil);
+//     currentTimeMilitary();
+//     format.innerText = "12HR";
+//   } else if (fetchMilitary) {
+//     fetchMilitary = false;
+//     fetchCivil = true;
+//     clearInterval(military);
+//     currentTimeCivil();
+//     format.innerText = "24HR";
+//   }
+// }
 
-function fetchDay() {
-  setInterval(() => {
-    day.textContent =
-      dayList[date.getDay()] +
-      ", " +
-      months[date.getMonth()] +
-      " " +
-      date.getDate();
-  }, 1000);
-}
+// function fetchDay() {
+//   setInterval(() => {
+//     day.textContent =
+//       dayList[date.getDay()] +
+//       ", " +
+//       months[date.getMonth()] +
+//       " " +
+//       date.getDate();
+//   }, 1000);
+// }
 
-format.addEventListener("click", switchTime);
+// format.addEventListener("click", switchTime);
 
-currentTimeCivil();
-fetchDay();
+// currentTimeCivil();
+// fetchDay();
+
+const secondHand = document.getElementById("second-hand");
+const secondDeg = new Date().getSeconds() * (360 / 60);
+let secondRotation = secondDeg;
+secondHand.style.rotate = `${secondRotation}deg`;
+
+const minuteHand = document.getElementById("minute-hand");
+const minutedDeg = new Date().getMinutes() * (360 / 60);
+let minuteRotation = minutedDeg;
+minuteHand.style.rotate = `${minuteRotation}deg`;
+
+const hourHand = document.getElementById("hour-hand");
+const hourDeg = new Date().getHours() * (360 / 12);
+let hourRotation = hourDeg;
+console.log(hourRotation);
+hourHand.style.rotate = `${hourRotation}deg`;
+
+setInterval(() => {
+  secondRotation = secondRotation + 6;
+  minuteRotation = minuteRotation + 6 / 60;
+  hourRotation = hourRotation + 6 / 3600;
+  console.log(hourRotation);
+  secondHand.style.rotate = `${secondRotation}deg`;
+  minuteHand.style.rotate = `${minuteRotation}deg`;
+}, 1000);
