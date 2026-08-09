@@ -80,6 +80,9 @@ button:hover {
 
 .dial-container {
   position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #second-hand {
