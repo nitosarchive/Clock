@@ -111,12 +111,50 @@ button:hover {
 }
 
 .one {
+  transform: rotate(30deg);
+}
+
+.two {
+  transform: rotate(60deg);
+}
+
+.four {
+  transform: rotate(120deg);
+}
+
+.five {
+  transform: rotate(150deg);
+}
+
+.seven {
+  transform: rotate(210deg);
+}
+
+.eight {
+  transform: rotate(240deg);
+}
+
+.ten {
+  transform: rotate(300deg);
+}
+
+.eleven {
+  transform: rotate(330deg);
+}
+
+.time-faces div {
+  height: 100%;
+  width: 100%;
   position: absolute;
-  top: 8.33%;
-  height: 10px;
-  width: 1px;
-  color: grey;
-  transform: translate(0, -8.33%);
+}
+
+.time-faces div::after {
+  content: "";
+  height: 12px;
+  margin-block-start: 0.3em;
+  width: 2px;
+  position: absolute;
+  background: grey;
 }
 .dial-container {
   position: absolute;
