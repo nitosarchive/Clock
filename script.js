@@ -1,7 +1,22 @@
 const clock = document.getElementById("time");
 const format = document.getElementById("format-switch");
-
 const day = document.getElementById("date");
+const switchBtn = document.getElementById("switch");
+const analogContainer = document.querySelector(".analog-container");
+const digitalContainer = document.querySelector(".digital-container");
+
+switchBtn.addEventListener("click", () => {
+  if (switchBtn.textContent === "Analog") {
+    analogContainer.classList.remove("hidden");
+    digitalContainer.classList.add("hidden");
+    switchBtn.textContent = "Digital";
+  } else if (switchBtn.textContent === "Digital") {
+    analogContainer.classList.add("hidden");
+    digitalContainer.classList.remove("hidden");
+    switchBtn.textContent = "Analog";
+  }
+  return;
+});
 
 const dayList = [
   "Sunday",
