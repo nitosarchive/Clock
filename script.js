@@ -117,7 +117,7 @@ let minuteRotation = minutedDeg;
 minuteHand.style.rotate = `${minuteRotation}deg`;
 
 const hourHand = document.querySelector("#hour-hand");
-const hourDeg = new Date().getHours() * (360 / 12);
+const hourDeg = 360 * (new Date().getHours() / 12);
 let hourRotation = hourDeg;
 hourHand.style.rotate = `${hourRotation}deg`;
 
