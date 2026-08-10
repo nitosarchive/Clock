@@ -109,6 +109,15 @@ button:hover {
   transform: translate(0, -50%);
   left: 0%;
 }
+
+.one {
+  position: absolute;
+  top: 8.33%;
+  height: 10px;
+  width: 1px;
+  color: grey;
+  transform: translate(0, -8.33%);
+}
 .dial-container {
   position: absolute;
   width: 100%;

@@ -115,17 +115,16 @@ const minuteHand = document.querySelector("#minute-hand");
 const minutedDeg = new Date().getMinutes() * (360 / 60);
 let minuteRotation = minutedDeg;
 minuteHand.style.rotate = `${minuteRotation}deg`;
-
+const minDec = new Date().getMinutes() / 60;
 const hourHand = document.querySelector("#hour-hand");
-const hourDeg = 360 * (new Date().getHours() / 12);
+const hourDeg = 360 * ((new Date().getHours() + minDec) / 12);
+
 let hourRotation = hourDeg;
 hourHand.style.rotate = `${hourRotation}deg`;
-
 setInterval(() => {
   secondRotation = secondRotation + 6;
-  minuteRotation = minuteRotation + 6 / 60;
-  hourRotation = hourRotation + 6 / 3600;
-
+  minuteRotation = minuteRotation + 360 / 3600;
+  hourRotation = hourRotation + 30 / 3600;
   hourHand.style.rotate = `${hourRotation}deg`;
   secondHand.style.rotate = `${secondRotation}deg`;
   minuteHand.style.rotate = `${minuteRotation}deg`;
