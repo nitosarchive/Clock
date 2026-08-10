@@ -78,6 +78,37 @@ button:hover {
   position: relative;
 }
 
+.time-faces {
+  position: absolute;
+  color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.nine,
+.twelve,
+.three,
+.six {
+  position: absolute;
+}
+.six,
+.twelve {
+  left: 50%;
+  transform: translate(-50%);
+}
+.six {
+  bottom: 0%;
+}
+.three {
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 0%;
+}
+.nine {
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0%;
+}
 .dial-container {
   position: absolute;
   width: 100%;
