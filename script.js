@@ -121,30 +121,22 @@ format.addEventListener("click", switchTime);
 currentTimeCivil();
 fetchDay();
 
-const secondHand = document.querySelector("#second-hand");
-const secondDeg = new Date().getSeconds() * (360 / 60);
-let secondRotation = secondDeg;
-secondHand.style.rotate = `${secondRotation}deg`;
-
-const minuteHand = document.querySelector("#minute-hand");
-const minutedDeg = new Date().getMinutes() * (360 / 60);
-let minuteRotation = minutedDeg;
-minuteHand.style.rotate = `${minuteRotation}deg`;
-const minDec = new Date().getMinutes() / 60;
-const hourHand = document.querySelector("#hour-hand");
-const hourDeg = 360 * ((new Date().getHours() + minDec) / 12);
-
-let hourRotation = hourDeg;
-hourHand.style.rotate = `${hourRotation}deg`;
-setInterval(() => {
-  secondRotation = secondRotation + 6;
-  minuteRotation = minuteRotation + 360 / 3600;
-  hourRotation = hourRotation + 30 / 3600;
-  hourHand.style.rotate = `${hourRotation}deg`;
+function loadTime() {
+  const secondHand = document.querySelector("#second-hand");
+  const secondDeg = new Date().getSeconds() * (360 / 60);
+  let secondRotation = secondDeg;
   secondHand.style.rotate = `${secondRotation}deg`;
-  minuteHand.style.rotate = `${minuteRotation}deg`;
 
-  secondRotation === 360 ? (secondRotation = 0) : null;
-  minuteRotation === 360 ? (minuteRotation = 0) : null;
-  hourRotation === 720 ? (hourRotation = 0) : null;
-}, 1000);
+  const minuteHand = document.querySelector("#minute-hand");
+  const minutedDeg = new Date().getMinutes() * (360 / 60);
+  let minuteRotation = minutedDeg;
+  minuteHand.style.rotate = `${minuteRotation}deg`;
+  const minDec = new Date().getMinutes() / 60;
+  const hourHand = document.querySelector("#hour-hand");
+  const hourDeg = 360 * ((new Date().getHours() + minDec) / 12);
+
+  let hourRotation = hourDeg;
+  hourHand.style.rotate = `${hourRotation}deg`;
+}
+loadTime();
+setInterval(loadTime, 1000);
