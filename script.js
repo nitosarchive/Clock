@@ -128,13 +128,14 @@ function loadTime() {
   secondHand.style.rotate = `${secondRotation}deg`;
 
   const minuteHand = document.querySelector("#minute-hand");
-  const minutedDeg = new Date().getMinutes() * (360 / 60);
+  const secondDec = new Date().getSeconds() / 60;
+  const minutedDeg = (new Date().getMinutes() + secondDec) * (360 / 60);
   let minuteRotation = minutedDeg;
   minuteHand.style.rotate = `${minuteRotation}deg`;
+
   const minDec = new Date().getMinutes() / 60;
   const hourHand = document.querySelector("#hour-hand");
   const hourDeg = 360 * ((new Date().getHours() + minDec) / 12);
-
   let hourRotation = hourDeg;
   hourHand.style.rotate = `${hourRotation}deg`;
 }
